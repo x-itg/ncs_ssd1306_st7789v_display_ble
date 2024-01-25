@@ -4,7 +4,7 @@
 
 这个工程的目的是把sdk下面的zephyr或者nrf下面的samples各个例程中的代码整合在一起实现一个综合的demo。
 
-### 工具链和SDK
+### 工具链和SDK （NCS下编程和ESP IDF差不多，完成一定功能就是找例程把多个例程合并成一个）
 
 * 使用nRF connect for Desktop下的ToolChain Manager下载工具链，使用VSCODE的Nordic插件下载SDK
 * 以下连不上github时：
