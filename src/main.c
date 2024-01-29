@@ -697,7 +697,7 @@ int main(void)
 		k_sleep(K_MSEC(RUN_LED_BLINK_INTERVAL));
 	}
 }
-
+// 串口接收后转发蓝牙发送
 void ble_write_thread(void)
 {
 	/* Don't go any further until BLE is initialized */
@@ -706,8 +706,9 @@ void ble_write_thread(void)
 	for (;;)
 	{
 		/* Wait indefinitely for data to be sent over bluetooth */
-		struct uart_data_t *buf = k_fifo_get(&fifo_uart_rx_data,
-											 K_FOREVER);
+		// 这个任务 无期限等待直到串口接收到数据 无数据的话一直阻塞让出CPU
+		// 一句话理解RTOS，[阻塞，让出CPU，等信号到来就绪执行]
+		struct uart_data_t *buf = k_fifo_get(&fifo_uart_rx_data, K_FOREVER);
 
 		if (bt_nus_send(NULL, buf->data, buf->len))
 		{
