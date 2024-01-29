@@ -26,7 +26,7 @@ struct printk_data_t
 };
 // #define LED0_NODE DT_ALIAS(led0)
 // #define LED1_NODE DT_ALIAS(led1)
-// #define LED2_NODE DT_ALIAS(led2)
+#define LED2_NODE DT_ALIAS(led2)
 // #define LED3_NODE DT_ALIAS(led3)
 #define LED4_NODE DT_ALIAS(led4)
 #define LED5_NODE DT_ALIAS(led5)

@@ -140,3 +140,5 @@ void display_init(void)
             rows,
             cfb_get_display_parameter(dev, CFB_DISPLAY_COLS));
 }
+
+K_THREAD_DEFINE(display_play_id, 1024, display_play, NULL, NULL, NULL, 7, 0, 0);

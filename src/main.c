@@ -3,7 +3,9 @@
  *
  * SPDX-License-Identifier: LicenseRef-Nordic-5-Clause
  */
-
+// 这里有两个任务，一个是main任务另外一个是ble_write_thread任务
+// main任务控制状态灯，
+// ble_write_thread任务串口接收数据后转发ble的任务
 /** @file
  *  @brief Nordic UART Bridge Service (NUS) sample
  */
@@ -688,8 +690,6 @@ int main(void)
 		LOG_ERR("Advertising failed to start (err %d)", err);
 		return 0;
 	}
-
-	display_play();
 
 	for (;;)
 	{
