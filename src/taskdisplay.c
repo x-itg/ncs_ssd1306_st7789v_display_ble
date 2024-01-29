@@ -87,7 +87,7 @@ void display_play(void)
 /*---------------------------------------------------------------------------*/
 void display_init(void)
 {
-    dev = device_get_binding(DISPLAY_DRIVER);
+    dev = (struct device *)device_get_binding(DISPLAY_DRIVER);
 
     if (dev == NULL)
     {

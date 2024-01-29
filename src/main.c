@@ -32,7 +32,7 @@
 #include <stdio.h>
 
 #include <zephyr/logging/log.h>
-
+#include "display.h"
 #define LOG_MODULE_NAME peripheral_uart
 LOG_MODULE_REGISTER(LOG_MODULE_NAME);
 

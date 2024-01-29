@@ -10,15 +10,16 @@ project(NONE)
 
 # NORDIC SDK APP START
 target_sources(app PRIVATE src/main.c)
-target_sources(app PRIVATE display.c)
-target_sources(app PRIVATE mainthread.c)
+target_sources(app PRIVATE src/taskled.c)
+target_sources(app PRIVATE src/taskkey.c)
+target_sources(app PRIVATE src/taskdisplay.c)
 target_sources(app PRIVATE fonts/font5x7.c)
 target_sources(app PRIVATE fonts/font8x8.c)
 target_sources(app PRIVATE fonts/font10x16.c)
 target_sources(app PRIVATE fonts/font15x24.c)
 target_sources(app PRIVATE fonts/font20x32.c)
 
-target_include_directories(app PRIVATE ./)
+target_include_directories(app PRIVATE ./inc/)
 
 # Include UART ASYNC API adapter
 target_sources_ifdef(CONFIG_BT_NUS_UART_ASYNC_ADAPTER app PRIVATE
