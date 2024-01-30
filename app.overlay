@@ -11,7 +11,7 @@
 };
 / {
     leds {
-        compatible = "gpio-leds";
+        compatible = "gpio-leds";//组件名 可以去sdk下面找到gpio_leds.c的驱动文件：C:\ncs\sdk\zephyr\drivers\led\gpio_leds.c和C:\ncs\sdk\zephyr\dts\bindings\led\gpio-leds.yaml
         led4: led_4 {
             gpios = <&gpio0 2 GPIO_ACTIVE_LOW>;
             label = "ADD LED4";
@@ -35,7 +35,7 @@
     ssd1306@3c {
         compatible = "solomon,ssd1306fb";
         reg = <0x3c>;
-        label = "SSD1306";
+        label = "SSD1306";//获取设备时用这个device_get_binding("SSD1306")
         height = <64>;
         width = <128>;
         segment-offset = <0>;
@@ -43,8 +43,5 @@
         display-offset = <0>;
         multiplex-ratio = <63>;
         prechargep = <0xFF>;
-        //s;
-        //com-invdir;
-        //com-sequential;
     };
 };

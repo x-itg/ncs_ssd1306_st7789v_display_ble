@@ -16,8 +16,8 @@ void uart_out(void)
     {
         struct printk_data_t *rx_data = k_fifo_get(&printk_fifo,
                                                    K_FOREVER);
-        printk("Toggled led%d; counter=%d\n",
-               rx_data->led, rx_data->cnt);
+        // printk("Toggled led%d; counter=%d\n",
+        //        rx_data->led, rx_data->cnt);
         k_free(rx_data);
     }
 }

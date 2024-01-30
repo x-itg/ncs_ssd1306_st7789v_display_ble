@@ -83,7 +83,7 @@ void display_play(void)
 }
 
 /*---------------------------------------------------------------------------*/
-/*                                                                           */
+/*          20240130                                                         */
 /*---------------------------------------------------------------------------*/
 void display_init(void)
 {
@@ -95,7 +95,7 @@ void display_init(void)
         return;
     }
 
-    if (display_set_pixel_format(dev, PIXEL_FORMAT_MONO10) != 0)
+    if (display_set_pixel_format(dev, PIXEL_FORMAT_MONO10) != 0) // 显示像素关联DISPLAY_DRIVER
     {
         LOG_ERR("Failed to set required pixel format");
         return;
@@ -103,13 +103,13 @@ void display_init(void)
 
     LOG_INF("Binding to %s", DISPLAY_DRIVER);
 
-    if (cfb_framebuffer_init(dev))
+    if (cfb_framebuffer_init(dev)) // 初始化Framebuffer
     {
         LOG_ERR("Framebuffer initialization failed!");
         return;
     }
 
-    cfb_framebuffer_clear(dev, true);
+    cfb_framebuffer_clear(dev, true); // 清屏
 
     display_blanking_off(dev);
 
