@@ -58,11 +58,11 @@
         compatible = "sitronix,st7789v";
         label = "ST7789V";
         reg = <0>;
-        spi-max-frequency = <8000000>; /* 8MHz */
+        spi-max-frequency = <48000000>; /* 8MHz */
         cmd-data-gpios = <&gpio0 26 GPIO_ACTIVE_LOW>;    /* DET */
         reset-gpios = <&gpio0 21 GPIO_ACTIVE_LOW>;    /* RESX reset */
-        width = <240>;
-        height = <240>;
+        width = <130>;
+        height = <130>;
         x-offset = <0>;
         y-offset = <0>;
         vcom = <0x19>;

@@ -1,50 +1,32 @@
-# zephyr-lvgl-nrf52840-mdk-sample
+# nrf52dk_nrf52832 lvgl demo ST7789V
+
 A simple example of how to use a [LVGL](https://lvgl.io/) widget in 
-Zephyr RTOS running on a [nRF52840_mdk](https://wiki.makerdiary.com/nrf52840-mdk/)
-board and a `ST7789 - 240x240 IPS` display
 
-# Tests
-It was tested in a `nRF52840_mdk` board.
+board and a `ST7789 - 130x130 TFT` display
 
-# Driver change
-In order to get this display working properly, you have to change
-`zephyr/drivers/display/display_st7789v.c (line 422)`:
+# 配置
 
-From
-```
-#define ST7789V_INIT(inst)                                              \
-    static const struct st7789v_config st7789v_config_ ## inst = {      \
-        .bus = SPI_DT_SPEC_INST_GET(inst, SPI_OP_MODE_MASTER |          \
-                              SPI_WORD_SET(8), 0),                      \
-```
+app.overlay 中已经调整引脚配置
+prj.conf使能相应驱动编译使能选项
+| nrf52dk_nrf52832 | ST7789V    |
+| ---------------- | ---------- |
+| P0.21            | RESET      |
+| P0.25            | BL         |
+| P0.27            | CS         |
+| P0.26            | D/C        |
+| P0.29            | SCLK       |
+| P0.28            | MOSI       |
 
-To
+# 编译
 
 ```
-#define ST7789V_INIT(inst)                                               \
-    static const struct st7789v_config st7789v_config_ ## inst = {       \
-        .bus = SPI_DT_SPEC_INST_GET(inst, SPI_OP_MODE_MASTER |           \
-        SPI_WORD_SET(8) | SPI_TRANSFER_MSB | SPI_MODE_CPOL, 0),          \
+$ west build #或 用vscode ncs插件 ACTIONS下面的build按钮
 ```
 
-# Pinout
+# 烧入
 
-| nRF52840_mdk |   ST7789   |
-|--------------|------------|
-|     P0.28    |    RES     |
-|     P0.29    |  DC (CMD)  |
-|     P0.27    |  SCK (SCL) |
-|     P0.26    | MOSI (SDA) |
-
-# How to build
 ```
-$ west build -p auto -b nrf52840_mdk
+$ west flash #或 用vscode ncs插件 ACTIONS下面的FLASH按钮
 ```
 
-# How to flash
-```
-$ west flash
-```
-# Application running
 
-![capture](nrf52840-st7789-lvgl.gif)
