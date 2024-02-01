@@ -1,6 +1,8 @@
+
+
 # ssd1306_zephyr
 
-## Overview 已经被我修改成ncs v2.4.1运行
+## Overview
 
 This project implements a SSD1306 OLED display connected to a nRF52 PCA10040 (nRF52832) board running Zephyr version 2.1.
 In theory, this project could be ported to other Zephyr-supported boards, but this has not (yet) been tried.
